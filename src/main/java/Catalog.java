@@ -23,12 +23,14 @@ public class Catalog {
             List<PriceEntry> prices = Arrays.asList(new ObjectMapper().readValue(pricesReader, PriceEntry[].class));
             List<Tool> tools = Arrays.asList(new ObjectMapper().readValue(toolsReader, Tool[].class));
 
+            // This is a temporary data structure to help map the prices to tools
             Map<String, PriceEntry> typeToPriceMap = new HashMap<>();
-
             for (PriceEntry entry : prices) {
                 typeToPriceMap.put(entry.type(), entry);
             }
 
+            // For each tool, get the corresponding price and create a catalog entry that knows about the tool and the price
+            // catalog entries stored by tool code for easy retrieval
             for (Tool tool : tools) {
                 if (typeToPriceMap.containsKey(tool.type())) {
                     entries.put(tool.id(), new CatalogEntry(typeToPriceMap.get(tool.type()), tool));
@@ -42,7 +44,6 @@ public class Catalog {
                 toolsReader.close();
             }
         }
-
     }
 
     public CatalogEntry getCatalogEntry(String toolCode) {

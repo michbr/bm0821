@@ -39,4 +39,14 @@ class DateUtilTest {
         assertEquals(2, DateUtil.getChargedDays("09/18/20", 4, true, false, false));
     }
 
+    @Test
+    public void testGetChargedDays_IndependenceMonday() {
+        assertEquals(2, DateUtil.getChargedDays("07/01/10", 5, true, false, false));
+    }
+
+    @Test
+    public void testGetChargedDays_IndependenceWeekday() {
+        assertEquals(3, DateUtil.getChargedDays("07/03/23", 4, true, false, false));
+    }
+
 }
