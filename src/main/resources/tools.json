@@ -1,0 +1,22 @@
+[
+  {
+    "id": "LADW",
+    "type": "Ladder",
+    "brand": "Werner"
+  },
+  {
+    "id": "CHNS",
+    "type": "Chainsaw",
+    "brand": "Stihl"
+  },
+  {
+    "id": "JAKR",
+    "type": "Jackhammer",
+    "brand": "Ridgid"
+  },
+  {
+    "id": "JAKD",
+    "type": "Jackhammer",
+    "brand": "DeWalt"
+  }
+]
